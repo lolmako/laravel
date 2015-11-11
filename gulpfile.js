@@ -1,53 +1,39 @@
+var gulp = require('gulp');
 var elixir = require('laravel-elixir');
-require('laravel-elixir-livereload');
-
-/*
- |--------------------------------------------------------------------------
- | Elixir Asset Management
- |--------------------------------------------------------------------------
- |
- | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Sass
- | file for our application, as well as publishing vendor resources.
- |
- */
 
 elixir(function (mix) {
-
-    //TODO: use npm to import vendor dependencies directly via browserify (will remove the need for a .copy task for js files
     mix
         /*-----------------------------------------
-         | Public (www) site
+         | Public site (www)
          | ----------------------------------------
          */
-
-        .browserify('../../assets/www/js/main.js', 'public/dist/www/js/bundle.js')
-
-        .sass('../../assets/www/sass/import.scss', 'public/dist/www/css/styles.css')
-
-        .version([
-            'dist/www/js/bundle.js',
-            'dist/www/css/styles.css'
-        ], 'public');
+        .sass('import.scss', './public/dist/www/css/styles.css')
+        .browserify('www/js/main.js', './public/dist/www/js/bundle.js')
+        
 
         /*-----------------------------------------
-         | Admin (cms) site
+         | Admin site (cms)
          | ----------------------------------------
          */
-        
-});
+        .sass('import.scss', './public/dist/cms/css/styles.css')
+        .browserify('cms/js/main.js', './public/dist/cms/js/bundle.js')
 
-/*
- |--------------------------------------------------------------------------
- | Elixir Extensions
- |--------------------------------------------------------------------------
- */
 
-elixir.extend('buildJs', function () {
-    gulp.task('build-js', function () {
-        gulp.task(['browserify', 'version'])
-    });
+        /*-----------------------------------------
+         | Copy
+         | ----------------------------------------
+         */
+        .copy('node_modules/font-awesome/fonts', '/dist/www/fonts/font-awesome')
 
-    this.registerWatcher('build-js', 'resources/**/assets/js/**');
-    return this.queueTask('build-js');
+
+        /*-----------------------------------------
+         | Version
+         | ----------------------------------------
+         */
+        .version([
+            '/public/dist/cms/js/bundle.js',
+            '/public/dist/cms/css/styles.css',
+            './public/dist/www/js/bundle.js',
+            './public/dist/www/css/styles.css'
+        ])
 });

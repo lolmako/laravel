@@ -1,26 +1,17 @@
-### Readme to be updated with a more thorough explanation soon. ###
-
 -----
 Clone down and remove git folder and init a new repository.
 -----
 
-This is a pre-setup repo of Laravel 5.1 for rapid front end development.
-
-## Already Included Composer Packages ##
-** Require **
-- nategood/httpful
-- barryvdh/laravel-debugbar
-** Require/dev **
-- barryvdh/laravel-ide-helper
+This is a modified repository of Laravel 5.1 for rapid front end development.
 
 
-## Already Included Node Packages ##
-- Bootstrap v3.3.5
-- Gulp v3.9.0
-- jQuery v2.1.4
-- Elixir v2.0.0
-- Elixir + Live Reload v0.0.3
-- CSS/JS Versioning
+## What's Included ##
+- Bootstrap
+- Font Awesome
+- jQuery
+- Gulp
+- Browserify
+- Underscore
 
 ## View folder structure ##
 - Emails
@@ -29,10 +20,12 @@ This is a pre-setup repo of Laravel 5.1 for rapid front end development.
     - Partials
 - Pages
     - Home
-        - Partials *(not in example repo)*
+        - Partials
 - Partials
+	- Forms
 
-### View folder structure explanation ###
+
+### View Folder Structure ###
 To be added...
 
 
@@ -40,18 +33,23 @@ To be added...
 - Components
 - Config
 - Pages
+	- Home
+		- Partials
 - Partials
-    - Responsive
+	- Responsive
+		- Responsive Range
+			- Pages
+			- Partials
 
-### Sass folder structure explanation (To be updated...) ###
+### Sass Folder Structure ###
 **Components**
-*These sass file(s) import the required file(s) for the component (from the vendor folder)*
+*These sass file(s) import the required file(s) for the component (from the vendor folder), can custom contain non-vendor components (Mixins, Extends)*
 
 **Config**
-These sass file(s) set variables *(or configure)* Components. Global config is for settings that can be used in any sass file(s)
+*These sass file(s) set variables *(or configure)* Components. Global config is for settings that can be used in any sass file(s)*
 
 **Pages**
-These sass file(s) are specific to pages only
+*These sass file(s) are specific to pages only*
 
 **Partials**
-These sass file(s) are typically elements used throughout the website and not to a specific page
+*These sass file(s) can be used throughout the website*
