@@ -7,7 +7,7 @@ elixir(function (mix) {
          | Public site (www)
          | ----------------------------------------
          */
-        .sass('import.scss', './public/dist/www/css/styles.css')
+        .sass('www/sass/import.scss', './public/dist/www/css/styles.css')
         .browserify('www/js/main.js', './public/dist/www/js/bundle.js')
         
 
@@ -15,7 +15,7 @@ elixir(function (mix) {
          | Admin site (cms)
          | ----------------------------------------
          */
-        .sass('import.scss', './public/dist/cms/css/styles.css')
+        .sass('cms/sass/import.scss', './public/dist/cms/css/styles.css')
         .browserify('cms/js/main.js', './public/dist/cms/js/bundle.js')
 
 
@@ -31,8 +31,8 @@ elixir(function (mix) {
          | ----------------------------------------
          */
         .version([
-            '/public/dist/cms/js/bundle.js',
-            '/public/dist/cms/css/styles.css',
+            './public/dist/cms/js/bundle.js',
+            './public/dist/cms/css/styles.css',
             './public/dist/www/js/bundle.js',
             './public/dist/www/css/styles.css'
         ])
