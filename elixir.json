@@ -11,7 +11,7 @@
         "outputFolder": "css",
 
         "sass": {
-    		"folder": "*/sass/**"
+    		"folder": "/"
     	}
     },
     
